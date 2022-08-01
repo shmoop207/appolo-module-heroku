@@ -4,8 +4,9 @@ import {ILogger} from '@appolo/logger';
 import {date} from '@appolo/date';
 import {_, Objects} from '@appolo/utils';
 import {IOptions} from "./IOptions";
-import {HerokuApp} from "./IHerokuApp";
+import {HerokuApp} from "./interfaces/IHerokuApp";
 import Heroku = require('heroku-client');
+import {HerokuBuild} from "./interfaces/IHerokuBuild";
 
 
 @define()
@@ -110,5 +111,11 @@ export class HerokuProvider {
             .map((item: number[]) => _(item).compact().sum()).sum();
 
         return totalRequestedStatusCodesResponsesCount / totalResponsesCount;
+    }
+
+    public async getBuilds(app_id_or_name: string): Promise<HerokuBuild[]> {
+        let builds = await this._heroku.get(`/apps/${app_id_or_name}/builds`);
+
+        return builds;
     }
 }

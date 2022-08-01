@@ -2,7 +2,7 @@
 import {Module, module,IModuleParams} from '@appolo/engine';
 import {IOptions} from "./src/IOptions";
 import {HerokuProvider} from "./src/herokuProvider";
-import {HerokuApp} from "./src/IHerokuApp";
+import {HerokuApp} from "./src/interfaces/IHerokuApp";
 
 export {IOptions}  from "./src/IOptions"
 

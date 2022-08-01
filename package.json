@@ -1,7 +1,6 @@
 {
   "name": "@appolo/heroku",
-  "version": "8.0.0",
-  "description": "appolo heroku module",
+  "version": "8.0.1",
   "description": "",
   "publishConfig": {
     "access": "public"

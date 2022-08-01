@@ -72,6 +72,10 @@ let HerokuProvider = class HerokuProvider {
             .map((item) => (0, utils_1._)(item).compact().sum()).sum();
         return totalRequestedStatusCodesResponsesCount / totalResponsesCount;
     }
+    async getBuilds(app_id_or_name) {
+        let builds = await this._heroku.get(`/apps/${app_id_or_name}/builds`);
+        return builds;
+    }
 };
 (0, tslib_1.__decorate)([
     (0, inject_1.inject)()
